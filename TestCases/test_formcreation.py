@@ -32,10 +32,15 @@ class Test_002_StageCreation:
         cw = CreateWorkflow(driver)
 
         # Stage 1
+        sleep(3)
+        driver.refresh()
         cw.click_add_stage_button_s1()
         cw.select_add_stage_s1()
         cw.enter_stage_name_s1("PS1")
         cw.save_stage_s1()
+        sleep(2)
+        driver.refresh()
+
         print("✅ Stage 1 created successfully")
 
         # Stage 2
@@ -43,7 +48,17 @@ class Test_002_StageCreation:
         cw.select_add_stage_s2()
         cw.enter_stage_name_s2("PS2")
         cw.save_stage_s2()
+        sleep(2)
+        driver.refresh()
         print("✅ Stage 2 created successfully")
+
+        # Stage 3
+        cw.click_add_stage_button_s3()
+        cw.select_add_stage_s3()
+        cw.enter_stage_name_s3("PS3")
+        cw.save_stage_s3()
+        sleep(2)
+        driver.refresh()
 
 
 
@@ -84,6 +99,7 @@ class Test_003_FormMainSection:
         fc.add_time()
         fc.add_html_editor()
         fc.add_terms_and_conditions()
+        fc.add_identity()
 
         print("✅ Main Section created with fields")
 
@@ -119,4 +135,10 @@ class Test_004_FormTableSection:
         fc.add_dropdown_table()
 
         print("✅ Table Section created with fields")
+
+        fc.click_publish()
+        sleep(2)
+        driver.refresh()
+
+        fc.click_go_to_workflow()
 

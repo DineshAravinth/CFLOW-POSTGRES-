@@ -36,6 +36,12 @@ class Test_002_Stage_Creation:
         cw.enter_stage_name_s2("PS2")
         cw.save_stage_s2()
 
+        # ✅ Stage 3
+        cw.click_add_stage_button_s3()
+        cw.select_add_stage_s3()
+        cw.enter_stage_name_s3("PS2")
+        cw.save_stage_s3()
+
         sleep(10)
         driver.refresh()
         cw.form_creation()

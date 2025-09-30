@@ -60,6 +60,14 @@ class FormCreation:
     button_add_new = "//button[contains(.,'+ Add New')]"
     enter_values = "//input[@title='validvalues']"
 
+    #Publish button
+    Publish_button = "//button[contains(.,'Publish')]"
+
+    #Go to workflow
+    go_to_workflow_button = "//button[contains(.,'Go to Workflow')]"
+
+
+
     def __init__(self, driver, timeout=30):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
@@ -554,6 +562,17 @@ class FormCreation:
                 sleep(0.3)
 
         self._save("Dropdown (Table)")
+
+
+    # ---------- Publish & Navigation ----------
+    def click_publish(self):
+        """Click the Publish button"""
+        self.click(self.Publish_button, "Publish Button")
+
+    def click_go_to_workflow(self):
+        """Click the Go to Workflow button"""
+        self.click(self.go_to_workflow_button, "Go to Workflow Button")
+
 
 
 

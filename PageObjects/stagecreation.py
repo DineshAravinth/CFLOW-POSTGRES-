@@ -12,6 +12,8 @@ class CreateWorkflow:
     textbox_workflow_name = "//input[@placeholder='Enter Your Workflow Name']"
     button_create_workflow = "//button[contains(.,' Create')]"
 
+
+
     # Stage 1 locators
     button_add_stage_s1 = "//summary[@class ='popover-button']"
     option_add_stage_s1 = "//button[contains(.,'Add Stage')]"
@@ -24,7 +26,14 @@ class CreateWorkflow:
     textbox_stage_name_s2 = "//input[@title='displayName']"
     button_save_stage_s2 = "//button[contains(.,' Save')]"
 
+    # Stage 3 locators
+    button_add_stage_s3 = "(//summary[@class ='popover-button'])[3]"
+    option_add_stage_s3 = "(//button[contains(.,'Add Stage')])[3]"
+    textbox_stage_name_s3 = "//input[@title='displayName']"
+    button_save_stage_s3 = "//button[contains(.,' Save')]"
+
     button_form_creation = "(//button[@type='button'])[2]"
+
 
     def __init__(self, driver, timeout=15):
         self.driver = driver
@@ -109,6 +118,22 @@ class CreateWorkflow:
 
     def save_stage_s2(self):
         self.click(self.button_save_stage_s2, "Save Stage S2")
+
+    def form_creation(self):
+        self.click(self.button_form_creation)
+
+    # ---------------- Stage 3 ---------------- #
+    def click_add_stage_button_s3(self):
+            self.click(self.button_add_stage_s3, "Add Stage (S3) button")
+
+    def select_add_stage_s3(self):
+        self.click(self.option_add_stage_s3, "Add Stage option (S3)")
+
+    def enter_stage_name_s3(self, stage_name="PS3"):
+        self.enter_text(self.textbox_stage_name_s3, stage_name, "Stage Name S3")
+
+    def save_stage_s3(self):
+        self.click(self.button_save_stage_s3, "Save Stage S3")
 
     def form_creation(self):
         self.click(self.button_form_creation)
